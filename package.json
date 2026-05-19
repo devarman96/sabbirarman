@@ -2,6 +2,7 @@
   "name": "react-example",
   "private": true,
   "version": "sabbirarman.v1.0",
+  "sync_timestamp": "2026-05-19T04:30:00Z",
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
