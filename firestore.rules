@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Server-side (admin) bypasses these rules.
+    // We block all client-side access to the messages collection for security.
+    match /messages/{messageId} {
+      allow read, write: if false;
+    }
+  }
+}
