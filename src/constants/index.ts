@@ -74,3 +74,67 @@ export const EDUCATION = [
     icon: "school",
   },
 ];
+
+export const PROJECTS = [
+  {
+    id: 1,
+    title: "E-commerce Website",
+    category: "Web Development",
+    description: "A modern web application featuring email confirmation, secure payment processing, and a comprehensive product browsing system. Focused on providing a seamless shopping experience.",
+    tech: ["Python", "JavaScript", "HTML5", "CSS3", "Bootstrap"],
+    image: "https://i.postimg.cc/HnkCfGbL/Ecommerce.webp",
+    liveLink: "#",
+    githubLink: "#"
+  },
+  {
+    id: 2,
+    title: "Quizzes Application",
+    category: "EduTech",
+    description: "An interactive learning platform with 10 default quizzes, customizable options for users, and secure authentication. Features progress tracking and profile-based results display.",
+    tech: ["JavaScript", "HTML5", "CSS3", "Firebase"],
+    image: "https://i.postimg.cc/FFLRFhQW/Quize-Application.webp",
+    liveLink: "#",
+    githubLink: "#"
+  },
+  {
+    id: 3,
+    title: "Portfolio 3D",
+    category: "Creative",
+    description: "A high-end professional portfolio with 3D interactive elements using Three.js and Framer Motion. Features custom shaders and high-performance animations.",
+    tech: ["React", "Three.js", "Framer Motion", "Tailwind"],
+    image: "https://i.postimg.cc/prLtgNKX/3d-portfolio.webp",
+    liveLink: "#",
+    githubLink: "#"
+  },
+  {
+    id: 4,
+    title: "Finance Tracker",
+    category: "FinTech",
+    description: "Real-time expense tracking application with detailed analytics dashboards. Supports multiple currencies and automated reports.",
+    tech: ["React", "Node.js", "MongoDB", "Chart.js"],
+    image: "https://i.postimg.cc/05wQ59qX/Finance-Tracker.webp",
+    liveLink: "#",
+    githubLink: "#"
+  },
+  {
+    id: 5,
+    title: "Social Connect",
+    category: "Web Development",
+    description: "A social networking platform focused on privacy and real-time communication. Includes encrypted messaging and file sharing capabilities.",
+    tech: ["Next.js", "Supabase", "Tailwind", "WebRTC"],
+    image: "https://i.postimg.cc/c1nH1dND/Social-Connect.webp",
+    liveLink: "#",
+    githubLink: "#"
+  },
+  {
+    id: 6,
+    title: "Cloud System",
+    category: "Entertainment",
+    description: "A video streaming service with adaptive bitrate streaming and personalized recommendations using machine learning.",
+    tech: ["React", "AWS S3", "Node.js", "Redis"],
+    image: "https://i.postimg.cc/90Qjv3yX/cloud-system.webp",
+    liveLink: "#",
+    githubLink: "#"
+  }
+];
+

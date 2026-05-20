@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, ExternalLink, Github, Monitor, Smartphone, Tablet, Globe } from 'lucide-react';
+import { PROJECTS } from '@/src/constants';
 
 interface Project {
   id: number;
@@ -17,15 +18,27 @@ interface Project {
 const ProjectShowcase = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [project, setProject] = useState<Project | null>(null);
+  const [project, setProject] = useState<Project | null>(() => {
+    return PROJECTS.find((p) => p.id === Number(id)) || null;
+  });
   const [viewMode, setViewMode] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
 
   useEffect(() => {
     fetch('/api/projects')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
       .then(data => {
-        const found = data.find((p: Project) => p.id === Number(id));
-        setProject(found);
+        if (Array.isArray(data)) {
+          const found = data.find((p: Project) => p.id === Number(id));
+          if (found) {
+            setProject(found);
+          }
+        }
+      })
+      .catch(err => {
+        console.warn('Using client-side static project showcase fallback:', err);
       });
     
     // Scroll to top

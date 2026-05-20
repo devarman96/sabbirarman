@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ExternalLink, Github, ChevronRight, X } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 import SectionHeader from '../ui/SectionHeader';
+import { PROJECTS } from '@/src/constants';
 
 interface Project {
   id: number;
@@ -17,14 +18,24 @@ interface Project {
 }
 
 const Projects = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<Project[]>(PROJECTS);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filter, setFilter] = useState('All');
 
   useEffect(() => {
     fetch('/api/projects')
-      .then(res => res.json())
-      .then(data => setProjects(data));
+      .then(res => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setProjects(data);
+        }
+      })
+      .catch(err => {
+        console.warn('Using client-side static projects fallback:', err);
+      });
   }, []);
 
   const categories = ['All', ...new Set(projects.map(p => p.category))];
